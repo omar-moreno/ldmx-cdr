@@ -1,0 +1,98 @@
+\section{Performance Studies}
+
+Baseline luminosity:  We want to handle $4\times 10^{14}$ electrons on target (EOT) with incoming energy of $4$ GeV. 
+
+\subsection{Signal Characteristics}
+
+Please note that we need to optimize the energy selection used below. Starting definition: 
+
+Tracking: 
+
+- one incoming beam electron with $E_{beam}$ close to $4$ GeV and a well measured trajectory. 
+ 
+- quality cuts (as needed) to reduce any dangerous brem (or photo-nuclear) reactions in the tagger tracker material
+ 
+- one recoiling electron with $E\lesssim 1.2$ GeV that points back to the incoming beam electron track. 
+
+- an activity cut in the recoil tracker to reject photo-nuclear reactions in the target
+
+- an inferred ``missing momentum'' trajectory and magnitude 
+
+Calorimetry: 
+
+- one soft recoil shower with $E\lesssim 1.2$ GeV that is consistent with recoil tracker trajectory
+
+- an activity cut in the ``missing momentum'' region for the ECal
+
+- an explicit veto on energetic (energy range needs to be specified) hadrons in both the ECal and hadron veto system 
+
+\subsection{Tagging Tracker Performance}
+
+Needs to be spelled out in more detail...
+
+- acceptance
+
+- efficiency 
+
+- purity (THIS ONE IS CRITICAL)
+
+\subsection{Recoil Tracker Performance}
+
+Needs to be spelled out in more detail...
+
+- acceptance
+
+- efficiency 
+
+- what kind of activity cuts do we want to apply?  Background rejection power?  Signal efficiency? 
+
+
+\subsection{Forward Electromagnetic Calorimeter}
+
+Owen and Joe will discuss this at the July 8 meeting. But Philip's notes include: 
+
+- Hermiticity:  make sure to include a study of cracks or dead material in the detector simulation. Do we need to worry about this? Why? 
+
+Large scale ``top down'' monte carlo study to demonstrate baseline performance of ECal and to justify more detailed study of specific reactions that dominate the tail of low energy deposition events. We need to quantify everything I'm about the say more carefully. Starting from $4\times 10^{14}$ EOT, the baseline tracker selections bring the event sample down to $\sim 4 \times 10^{12}$. So we're dealing with $\sim 4 \times 10^{12}$ events with a soft recoiling electron and a hard, $\sim 3$ GeV, photon. ECal events that are hadron rich occur about $\sim10^{-3}$ of the time. So now we're down to $\sim 4\times 10^{9}$ hadron rich events in the ECal. 
+
+- most importantly, we want to understand what dominates the low energy deposition events
+
+- we want to characterize the hadron rich events (because we know they are a potential issue)
+
+- explain veto strategy
+
+- at what point is the energy deposition so low that it's not possible to veto effectively? what are these events types? 
+
+Specific ``bottom up'' studies of photo-nuclear reactions:  We know that certain event types could pose a challenge, so let's study them. The numbers shown below are with very loose kinematic selections, so they are upper bounds. They are also for $9$ GeV photons, so Philip and Natalia will need to correct them. This is a good starting point for study however: 
+
+- $\gamma N \rightarrow (\rho,\omega,\phi)N\rightarrow \pi^+\pi^- N$ ($\lesssim 10^8$ of this event type). 
+
+- $\gamma N \rightarrow  \mu^+\mu^- N$ ($\lesssim 2 \times 10^7$ of this event type). 
+
+- $\gamma p \rightarrow \pi^+ n$ ($\lesssim 4\times 10^5$ with $\sim 4\times 10^3$ of these having a backscattered $\pi^+$). 
+
+- $\gamma n \rightarrow n \bar{n} n$ ($\lesssim 4\times 10^5$ of this type). 
+
+- $\gamma (p,n) \rightarrow K_L K_L + X$ (expect this at the $\sim 10^3$ level, but we need to check this!)
+
+The current plan is to use a particle gun and weight the depth of origination and angle/energy distribution using data. Let Philip and Natalia know when you're ready to do this. 
+{\it We need to be especially careful to include the regions of phase space where the MIPs are soft or wide/back scattering by recoiling off the nucleons or atoms. This needs a dedicated study, starting with the physics simulations group, P,N,E,G}. 
+
+
+\subsection{Hadronic Veto System}
+
+A good starting point would be to focus on the event types that the ECal will certainly have a tough time with. These are the few-body photo-nuclear reactions for sure. So it might make sense to start with the ``bottom up'' study outlined above. 
+
+\subsection{Trigger}
+
+We need to spell out our trigger streams. 
+
+Signal stream: 
+
+- a single cluster with energy below $\sim ??$ GeV. 
+
+- coincident with a signal from the fast-or layer in the tracker
+
+- rate? 
+
+What other streams do we need to measure performance? 
