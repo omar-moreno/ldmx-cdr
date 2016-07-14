@@ -19,6 +19,16 @@ add_latex_document(ldmx_cdr.tex
     INPUTS sections/overview.tex
            sections/goals.tex
            sections/detector.tex
+           sections/detector/overview.tex
+           sections/detector/beamline.tex
+           sections/detector/tagger_tracker.tex
+           sections/detector/target.tex
+           sections/detector/recoil_tracker.tex
+           sections/detector/ecal.tex
+           sections/detector/hcal.tex
+           sections/detector/wide_cal.tex
+           sections/detector/trigger.tex
+           sections/detector/daq.tex
            sections/simulation.tex
            sections/performance.tex
            sections/budget.tex
