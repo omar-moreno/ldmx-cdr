@@ -31,6 +31,11 @@ add_latex_document(ldmx_cdr.tex
            sections/detector/daq.tex
            sections/simulation.tex
            sections/performance.tex
+           sections/performance/signal.tex
+           sections/performance/tracking.tex
+           sections/performance/ecal.tex
+           sections/performance/hcal.tex
+           sections/performance/trigger.tex
            sections/budget.tex
     IMAGE_DIRS images
 )
