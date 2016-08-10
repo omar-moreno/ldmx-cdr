@@ -1,2 +1,8 @@
 
-\subsection{Simulations Overview (Editors: Natalia Toro, Jeremy McCormick)}
+%\subsection{Simulations Overview (Editors: Natalia Toro, Jeremy McCormick)}
+\subsection*{\draft{Simulations Overview (Editors: Natalia Toro, Jeremy McCormick)}}
+I don't think this should be a numbered section, but am keeping
+This section describes the methods used to simulate signal and background physics reactions and the responses of various detectors to these reactions.  
+For historical reasons, two separate simulation frameworks have been used: the ``tracker simulation'' implemented in SLIC comprises a full simulation of the tagger tracker and recoil tracker, with ECAL material included but not its detector response.  Likewise, the ``calorimeter simulation'' implemented directly in Geant4 comprises a full simulation of the ECAL and HCAL, with recoil tracker material included upstream. In both cases, the target material and magnetic field map are also included. \draft{Please check for accuracy} These two simulations are described in more detail in \S\ref{ssec:sim-tracker}--\ref{ssec:hcal}.
+
+While the primary simulation engine is Geant4 \cite{g4}, the signal reaction (Dark Matter pair production) is modelled using an external generator based on MadGraph4 \cite{MG4}.  This generator, its validation, and the interface with Geant4 are described in \S\ref{ssec:signal}.  All background processes are modelled directly in Geant4, with modifications and biasing for photonuclear processes as discussed in \S\ref{ssec:photonuclear}.
