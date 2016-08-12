@@ -32,8 +32,8 @@ add_latex_document(ldmx_cdr.tex
            sections/simulation.tex
            sections/simulation/overview.tex
            #sections/simulation/reactions.tex
-           #sections/simulation/tracking.tex
-           #sections/simulation/ecal.tex
+           sections/simulation/tracking.tex
+           sections/simulation/ecal.tex
            #sections/simulation/hcal.tex
            sections/performance.tex
            sections/performance/signal.tex
