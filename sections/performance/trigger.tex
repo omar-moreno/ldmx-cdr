@@ -1,11 +1,16 @@
 
 \subsection{Trigger Performance}
 
-As described above, the primary physics trigger is based on the total energy observed in the calorimeter, combined with a requirement of a single incoming electron observed in the trigger fiber hodoscope.
+As described above, the primary physics trigger is based on the total
+energy observed in the calorimeter, combined with a requirement of a
+single incoming electron observed in the trigger fiber hodoscope.
 Figure~\ref{fig:trigger_rejection} shows the simulated performance of
 the primary physics trigger for signal and background.
 
 \begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{images/trigger/trigger_rate_energy}
+    \end{center}
   \caption{Performance of the primary physics trigger for LDMX.  The
     effiency for signal electrons of differing energy and the trigger
     rate for all backgrounds induced by beam electrons are shown as a
@@ -22,13 +27,13 @@ fired.  An initial draft trigger menu is shown in Table~\ref{tab:trigger_menu}.
 
 \begin{table}
   \caption{Draft trigger menu for LDMX, showing the primary
-    contributions to the trigger budget for a 40~MHz beam
+    contributions to the trigger budget for a 46~MHz beam
     rate}\label{tab:trigger_menu}
   \begin{tabular}{|l|r|r|} \hline
     Trigger & Prescale factor & Rate (Hz) \\
     \hline
     \em{Physics Trigger} & 1 & \\ 
-    \hspace{0.2in} $\mathrm{E(ECAL)}<1.2$~GeV & & 850 \\ \hline
+    \hspace{0.2in} $\mathrm{E(ECAL)}<1.2$~GeV & & 4600 \\ \hline
     \em{Background-Measurement Triggers} &  & \em{100} \\
     \hspace{0.2in} $\mathrm{E(ECAL)}>3$~GeV & & 25 \\
     \hspace{0.2in} $\mathrm{E(ECAL)}>2$~GeV & & 50 \\
