@@ -2,3 +2,4 @@ Sign here if you've been able to clone from Github.  Then commit your changes us
 git commit -m "added <your name> to checkout file"
 
 Natalia Toro
+Philip Schuster
