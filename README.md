@@ -17,7 +17,7 @@ The document is stored in a public GitHub repository.  The LaTeX source can be
 from a terminal
 
     cd /path/to/workdir
-    git clone https://github.com/omar-moreno/ldmx-cdr.git
+    git clone https://github.com/LDMXAnalysis/ldmx-cdr.git
 
 A github account in not required to clone the source code, but one will be 
 needed to commit any changes made to the document.
