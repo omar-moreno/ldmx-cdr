@@ -1,0 +1,4 @@
+Sign here if you've been able to clone from Github.  Then commit your changes using 
+git commit -m "added <your name> to checkout file"
+
+Natalia Toro
