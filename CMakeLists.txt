@@ -44,4 +44,5 @@ add_latex_document(ldmx_cdr.tex
            sections/performance/trigger.tex
            sections/budget.tex
     IMAGE_DIRS images
+               images/hcal
 )
