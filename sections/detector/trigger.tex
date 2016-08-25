@@ -2,9 +2,9 @@
 \subsection{Trigger System (Editors: Jeremy Mans, Nhan Tran, Andrew Whitbeck)}
 
 The LDMX trigger system is designed to reduce the typical beam
-particle arrival rate of $\approx 40$~MHz to a rate of \draft{O(1~kHz)} for
-storage and analysis.  The selection is performed by a combination of
-dedicated hardware and software running on general-purpose computers.
+particle arrival rate of 46~MHz to a rate of 5~kHz for storage and
+analysis.  The selection is performed by a combination of dedicated
+hardware and software running on general-purpose computers.
 
 The first stage trigger is implemented in hardware and allows the
 selection of both candidate events for dark matter production and
@@ -18,20 +18,20 @@ requirements on the trigger calculation latency are set \draft{by the tracker
 The primary physics trigger is based on the silicon calorimeter and is
 designed to select events with energy deposition significantly lower
 than the full beam energy.  The silicon calorimeter ASIC calculates
-the total energy in 2x2 fundamental cells for every 40~MHz
-pseudo-bucket.  The energy information is transferred by digital data
-link to the peripherary of the calorimeter, where sums can be made
-over larger regions and transferred by optical link to the trigger
-electronics.  The total energy is then used to select the events.
+the total energy in 2x2 fundamental cells for every 46~MHz bucket.
+The energy information is transferred by digital data link to the
+peripherary of the calorimeter, where sums can be made over larger
+regions and transferred by optical link to the trigger electronics.
+The total energy is then used to select the events.
 
 The use of a calorimeter trigger requirement of energy below a
 threshold also requires a beam-presence measurement to avoid very high
 trigger rates during crossings where there is no beam electron
 present.  The trigger fiber hodoscope is designed to serve this
-purpose.  The hodoscope is constructed of an array of \draft{1~mm}-diameter
-scintillating fibers, which are mounted immediately upstream of the
-tungsten target. \draft{[more details on the mechanics, including orientation
-of the fibers]}
+purpose.  The hodoscope is constructed of an array of
+\draft{1~mm}-diameter scintillating fibers, which are mounted
+immediately upstream of the tungsten target. \draft{[more details on
+    the mechanics, including orientation of the fibers]}
 
 \begin{figure}[t]
   \caption{Drawing of the trigger fiber hodoscope}
@@ -42,10 +42,10 @@ feedthrough and a clear fiber ribbon is connected on the outside of
 feedthrough to carry the light signals to the readout electronics.
 Based on studies by the LHCb collaboration\cite{lhcb:scintfiberrad},
 scaled to the diameter of fibers in use for the hodoscope, we expect a
-typical signal of \draft{[]} photons to be produced in the hodoscope by a beam
-electron after a total absorbed radiation dose of \draft{XXX Gray}.
-We expect to able to bring at least \draft{[50\%]} of these photons
-to the readout SiPMs.
+typical signal of \draft{[]} photons to be produced in the hodoscope
+by a beam electron after a total absorbed radiation dose of \draft{XXX
+  Gray}.  We expect to able to bring at least \draft{[50\%]} of these
+photons to the readout SiPMs.
 
 The same electronics design is used for readout of the hodoscope and
 the scintillator calorimeter.  This readout is based on SiPMs and the
