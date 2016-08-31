@@ -2,7 +2,6 @@
 % ldmx_cdr.tex
 % date: July 09, 2016
 %
-
 % Set the document type and the font size
 \documentclass[11pt]{article}
 
@@ -26,13 +25,58 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}											
 \usepackage{slashed}
-
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes}
 \usetikzlibrary{trees}
 \usetikzlibrary{matrix}
 \usetikzlibrary{arrows} 			
 \providecommand{\draft}[1]{{\color{blue}#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Gordan's packages for goals section %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amssymb,graphicx,cancel}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx,epsfig,psfrag,bm,amssymb}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{mathrsfs,amsfonts,hepunits,color}
+\usepackage[utf8]{inputenc}
+\usepackage{epsfig,latexsym,cancel,amssymb,amsmath,mathrsfs}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{mciteplus}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hepunits}
+\usepackage{hyperref}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{xfrac}
+\usepackage{color}
+\usepackage{colordvi}
+\usepackage{comment}
+\usepackage{dcolumn}
+\usepackage{times,latexsym,graphicx,wrapfig}
+\usepackage{epsfig,lineno,bm}
+\usepackage{subfigure}
+\usepackage{slashed}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\Gev}{\,\,\mathrm{GeV}}
+\newcommand{\SUWeak}{\mathrm{SU}(2)_{\rm W}}
+\newcommand{\Lag}{\mathcal{L}}
+\newcommand{\Lagtree}{\mathcal{L}_{\rm tree}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\met}{\slashed{E_T}}
+\newcommand{\ap}{{A^\prime}}
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 %%%%%%%%%%%%%%%%
@@ -42,12 +86,12 @@
 % 
 % Front matter should be moved to its own page
 %
-\title{Light Dark Matter eXperiment (LDMX):  Conceptual Design Report}
+\title{Light Dark Matter eXperiment (LDMX): \\ Letter of Intent}
 
 \author[a]{an author}
 \affiliation[a]{an institution}
 
-\abstract{this is good stuf}
+\abstract{The LDMX experiment proposes a high-statistics search for low-mass dark matter at the DASEL beamline using the missing momentum technique, scattering incoming electrons in a tungsten target to produce dark matter via ``dark bremsstrahlung''. This clear signature is established by individually tagging incoming beam-energy electrons and unambiguously associating them with low energy, moderate transverse-momentum recoils and establishing the absence of a forward-going photon. The primary backgrounds are traditional bremsstrahlung processes with photo-nuclear reactions occurring in the target or forward calorimeter. Therefore, the experiment requires a high-speed, granular calorimeter with MIP sensitivity to identify rare photo nuclear reactions, in addition to low mass tracking that provides high-purity tagging for incoming electrons and clean, efficient reconstruction of recoils. The LDMX concept proposes to meet these challenges by leveraging technology under development for the HL-LHC and experience from the HPS experiment}
 
 \maketitle
 
@@ -88,8 +132,8 @@
 %%%%%%%%%%%%%%%%%%%%
 %   Bibliography   %
 %%%%%%%%%%%%%%%%%%%%
-%\bibliographystyle{JHEP}
-%\bibliography{bibliography}
+\bibliographystyle{JHEP}
+\bibliography{bibliography}
 
 \end{document}
 
