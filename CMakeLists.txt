@@ -46,4 +46,5 @@ add_latex_document(ldmx_cdr.tex
     IMAGE_DIRS images
                images/hcal
                images/trigger
+               images/goals
 )
