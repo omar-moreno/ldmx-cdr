@@ -2,46 +2,56 @@
 \subsection{Simulation of the Tagger and Recoil Trackers (Editors: Omar Moreno, Jeremy McCormick)}
 
 The simulation of the passage of both charged and neutral particles through 
-both the tagger and recoil trackers uses a software package based on SLAC's 
-org.lcsim infrastructure which wraps Geant4.  The simulation creates realistic
-charge depositions in the silicon layers, simulates the APV25 readout chip 
-amplifier chain as well as the 24 ns sampling of the signal, creates clusters 
-and performs track finding.  The performance studies assumed that the 
-tagger (recoil) tracker is within a uniform dipole field of strength -1.5 T 
-(-.75 T), while all acceptance studies use the full field map.  A rendering of
-the tagger and recoil tracker as used in the simulation is shown on Figure~\ref{}.
+the tagger and recoil trackers as well as the target uses a software 
+package, the Simulator for the Linear Collider (SLIC)~\cite{}, based on the
+GEANT4 toolkit. It creates realistic charge depositions in the silicon layers,
+simulates the APV25 readout chip amplifier chain, creates clusters and performs
+track finding and reconstruction.
+The simulation is used to understand the track reconstruction efficiencies,
+purity and to evaluate the momentum and vertex resolutions. A rendering of
+the tagger and recoil tracker as used in the simulation is shown on 
+Figure~\ref{}.
+\begin{figure}
+\end{figure}
 
-\subsubsection{Readout simulation}
-
+%The performance studies assumed that the 
+%tagger (recoil) tracker is within a uniform dipole field of strength -1.5 T 
+%(-.75 T), while all acceptance studies use the full field map.
 
 \subsubsection{Hit Reconstruction}
 
-The six samples emerging from each channel are fit using the following 3-pole 
-function
-\begin{equation}
-    f(t) = A\frac{\tau_1^2}{(\tau_1 - \tau_2)^3}\left( e^{-\frac{t-t_{0}}{\tau_1}}
-        - \sum_{k=0}^2 \left(\frac{\tau_1 - \tau_2}{\tau_1\tau_2}(t-t_{0})\right)^k
-        \frac{e^{-\frac{t-t_{0}}{\tau_2}}}{k!} \right)
-\end{equation}
-where $\tau_1$ and $\tau_2$ represent the fall and rise time of the shaper 
-signal respectively.  The amplitude, $A$, and the time of the hit, $t_0$, are then
-determined from the fit.
+The charge depositions created by a particle in the silicon planes are used to
+form strip hits. The signal present on each of the strips is used to simulate 
+the APV25 pulse shape which is then sampled into a readout pipeline in intervals
+of 24 ns. The six samples emerging from each channel are fit using a 3-pole 
+function in order to extract the rise and fall time, the amplitude and time of 
+the hit.
+%\begin{equation}
+%    f(t) = A\frac{\tau_1^2}{(\tau_1 - \tau_2)^3}\left( e^{-\frac{t-t_{0}}{\tau_1}}
+%        - \sum_{k=0}^2 \left(\frac{\tau_1 - \tau_2}{\tau_1\tau_2}(t-t_{0})\right)^k
+%        \frac{e^{-\frac{t-t_{0}}{\tau_2}}}{k!} \right)
+%\end{equation}
+%where $\tau_1$ and $\tau_2$ represent the fall and rise time of the shaper 
+%signal respectively.  The amplitude, $A$, and the time of the hit, $t_0$, are then
+%determined from the fit.
 
 Hits on neighboring strips are clustered using a nearest neighbor
-algorithm as follows: 
-\begin{itemize}
-    \item A list of seeds is created from all raw hits that have an amplitude, $S$,
-          $> 4\times \sigma_{\text{Noise}}$
-  \item Recursively add neighboring strips that have $S> 3 \times \sigma_{\text{Noise}}$
-          until a strip with $S < 3\times \sigma_{\text{Noise}}$ is found.
-      \item Require that neighboring hits have a $t_{0}$ that is within 8 ns of the seed hit.
-    \item Repeat the first two steps until seed strips are no longer found.
-\item Require that a cluster has an amplitude $> 4 \times \sigma_{\text{Noise}}$.
-\end{itemize}
+algorithm.
+%as follows: 
+%\begin{itemize}
+%    \item A list of seeds is created from all raw hits that have an amplitude, $S$,
+%          $> 4\times \sigma_{\text{Noise}}$
+%  \item Recursively add neighboring strips that have $S> 3 \times \sigma_{\text{Noise}}$
+%          until a strip with $S < 3\times \sigma_{\text{Noise}}$ is found.
+%      \item Require that neighboring hits have a $t_{0}$ that is within 8 ns of the seed hit.
+%    \item Repeat the first two steps until seed strips are no longer found.
+%\item Require that a cluster has an amplitude $> 4 \times \sigma_{\text{Noise}}$.
+%\end{itemize}
 After hits on a sensor have been
 clustered, the cluster time is computed as the amplitude-weighted average
 of the $t_0$ times from the hits that compose it. All clusters in adjacent pairs
-of layers are combined to create 3D hits.
+of layers are combined to create 3D hits used by the track finding and fitting
+algorithm.
 
 \subsubsection{Track Reconstruction}
 
@@ -63,9 +73,6 @@ The algorithm proceeds as follows:
           however, it is possible for all hits in a layer to be discarded.
     \item All track candidates are merged in order to form a set of unique 
           tracks.  Tracks are allowed to share at most one hit.  If a pair of
-          tracks shares more than a single hit, the track with the best $chi^2$ 
+          tracks shares more than a single hit, the track with the best $\chi^2$ 
           is chosen. 
 \end{itemize}
-
-\textbf{Need to talk about what strategy and cuts are being used}.
-
