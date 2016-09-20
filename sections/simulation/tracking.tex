@@ -5,27 +5,41 @@ The simulation of the passage of both charged and neutral particles through
 the tagger and recoil trackers as well as the target uses a software 
 package, the Simulator for the Linear Collider (SLIC)~\cite{}, based on the
 GEANT4 toolkit. It creates realistic charge depositions in the silicon layers,
-simulates the APV25 readout chip amplifier chain, creates clusters and performs
-track finding and reconstruction.
-The simulation is used to understand the track reconstruction efficiencies,
+simulates the APV25 readout chip amplifier chain, forms clusters and performs
+track finding and fitting.  The simulation also contains the Ecal material,
+needed to understand the contribution of backscattered particles to the 
+occupancy of the last recoil tracker layer.
+The simulation is used to understand track reconstruction efficiencies,
 purity and to evaluate the momentum and vertex resolutions. A rendering of
-the tagger and recoil tracker as used in the simulation is shown on 
-Figure~\ref{}.
+the tagger and recoil tracker as used in the simulation is shown in
+Figure~\ref{fig:ldmx_tracker_geo}.
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
 \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/simulation/wired_view_ldmx_tracker.png}
+    \caption{Rendering of the tagger and recoil tracker geometry used for 
+        performance studies.  The figure shows a typical event where an 
+        incident electron (in blue) traverses through the tagger and recoil 
+        trackers. The white boxes represent the tracker silicon microstrip
+        sensors while the green lines represent the strips that were hit by
+        the incident electron.}
+    \label{fig:ldmx_tracker_geo}
 \end{figure}
-
-%The performance studies assumed that the 
-%tagger (recoil) tracker is within a uniform dipole field of strength -1.5 T 
-%(-.75 T), while all acceptance studies use the full field map.
 
 \subsubsection{Hit Reconstruction}
 
-The charge depositions created by a particle in the silicon planes are used to
-form strip hits. The signal present on each of the strips is used to simulate 
-the APV25 pulse shape which is then sampled into a readout pipeline in intervals
-of 24 ns. The six samples emerging from each channel are fit using a 3-pole 
-function in order to extract the rise and fall time, the amplitude and time of 
-the hit.
+The energy depositions resulting from a particle traversing through the silicon
+planes are used in the simulation of all physical processes resulting in 
+current signals on the readout strips.  The signal present on each of the 
+strips is used to simulate 
+the APV25 pulse shape which is then sampled into a readout pipeline. 
+Six of the samples from each strip, selected in such a way that it captures
+the signal peak, are fit using a 3-pole function in order to extract the
+rise and fall time, the amplitude and time of the hit, $t_0$.  The information
+extracted from the fits is used to form strip hits which, in turn, are clustered
+using a nearest neighbor algorithm.
 %\begin{equation}
 %    f(t) = A\frac{\tau_1^2}{(\tau_1 - \tau_2)^3}\left( e^{-\frac{t-t_{0}}{\tau_1}}
 %        - \sum_{k=0}^2 \left(\frac{\tau_1 - \tau_2}{\tau_1\tau_2}(t-t_{0})\right)^k
@@ -34,9 +48,6 @@ the hit.
 %where $\tau_1$ and $\tau_2$ represent the fall and rise time of the shaper 
 %signal respectively.  The amplitude, $A$, and the time of the hit, $t_0$, are then
 %determined from the fit.
-
-Hits on neighboring strips are clustered using a nearest neighbor
-algorithm.
 %as follows: 
 %\begin{itemize}
 %    \item A list of seeds is created from all raw hits that have an amplitude, $S$,
@@ -47,32 +58,45 @@ algorithm.
 %    \item Repeat the first two steps until seed strips are no longer found.
 %\item Require that a cluster has an amplitude $> 4 \times \sigma_{\text{Noise}}$.
 %\end{itemize}
-After hits on a sensor have been
-clustered, the cluster time is computed as the amplitude-weighted average
-of the $t_0$ times from the hits that compose it. All clusters in adjacent pairs
+%the cluster time is computed as the amplitude-weighted average
+%of the $t_0$ times from the hits that compose it. 
+Finally, all clusters in adjacent pairs
 of layers are combined to create 3D hits used by the track finding and fitting
 algorithm.
 
 \subsubsection{Track Reconstruction}
 
 The track finding and fitting algorithm proceeds in steps following a specific 
-``tracking strategy''.  The strategies outline which layers are used, the 
-minimum number of hits required to form a track and kinematic constraints.  
-The algorithm proceeds as follows:
+``tracking strategy''.  The strategies outline which layers are used and their
+roles (e.g. seed, confirm, extend), 
+the minimum number of hits required to form a track, kinematic constraints
+(e.g. impact paremeters) and the maximum allowable $\chi^2$ value. The algorithm
+proceeds as follows:
 \begin{itemize}
-    \item All possible combinations of hits are formed from the seed layers and
-          and a helix fit is performed.  Only those seeds which satisfy a 
-          $\chi^2$ requirement are kept. 
+    \item To begin, all possible combinations of hits on the specified seed 
+          layers are used to form 3-hit track candidates.  A helix fit is then 
+          perfomed on each of the candidates and only those which satisfy the
+          $\chi^2$ requirement are kept.
     \item Once all seeds have been found, hits from a specified ``confirm'' 
           layer are added to the seeds and a helix fit is performed once again.
-          Those fits which do satisfy a $\chi^2$ cut are eliminated.
-    \item Finally, tracks are ``extended'' by hits from the rest of the layers.
+          Those 4-hit seeds which fail to satisfy the $\chi^2$ cut are eliminated.
+    \item Next, tracks are ``extended'' using hits from the rest of the layers.
           After the addition of a hit, a helix fit is performed.  If the track
           fails the $\chi^2$ constraint, the hit is discarded.  This procedure
-          is repeated until all hits in a layer have been added to all seeds, 
-          however, it is possible for all hits in a layer to be discarded.
-    \item All track candidates are merged in order to form a set of unique 
+          is repeated until all hits in all extend layer have been added to all seeds. 
+          However, it is possible for all hits in a layer to be discarded.
+    \item Finally, all track candidates are merged in order to form a set of unique 
           tracks.  Tracks are allowed to share at most one hit.  If a pair of
-          tracks shares more than a single hit, the track with the best $\chi^2$ 
-          is chosen. 
+          tracks shares more than a single hit, the track with the most hits is
+          chosen.  If the two tracks have the same number of hits, the track 
+          with the best $\chi^2$  is selected.
 \end{itemize}
+
+The performance of the track finding and fitting algorithm is discussed in 
+section~\ref{}.  The tracking strategies used in these studies required only 
+a single confirmation hit.  In the tagging (recoil) tracker, tracks were 
+required to have at least 5 (4) hits. Furthermore, extremely loose cuts on the
+track $\chi^2$ and distance of closes approach to the beam were imposed. 
+Unless otherwise noted, the performance studies assumed that the 
+tagger (recoil) tracker is within a uniform dipole field of strength -1.5 T 
+(-.75 T), while all acceptance studies used the full field map.
