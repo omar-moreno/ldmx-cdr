@@ -70,12 +70,12 @@ The track finding and fitting algorithm proceeds in steps following a specific
 ``tracking strategy''.  The strategies outline which layers are used and their
 roles (e.g. seed, confirm, extend), 
 the minimum number of hits required to form a track, kinematic constraints
-(e.g. impact paremeters) and the maximum allowable $\chi^2$ value. The algorithm
+(e.g. impact parameters) and the maximum allowable $\chi^2$ value. The algorithm
 proceeds as follows:
 \begin{itemize}
     \item To begin, all possible combinations of hits on the specified seed 
           layers are used to form 3-hit track candidates.  A helix fit is then 
-          perfomed on each of the candidates and only those which satisfy the
+          performed on each of the candidates and only those which satisfy the
           $\chi^2$ requirement are kept.
     \item Once all seeds have been found, hits from a specified ``confirm'' 
           layer are added to the seeds and a helix fit is performed once again.
