@@ -38,7 +38,7 @@ These indicate that tight requirements can be made in both the energy and trajec
 %=======================
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=\textwidth]{images/tagger_tracker_p_pt_1pt2_gev.png}
+    \includegraphics[width=\textwidth]{images/tracker/tagger_tracker_p_pt_1pt2_gev.pdf}
     \caption{\small{Reconstructed total momentum for a sample of 1.2 GeV beam 
                     electrons.}}
     \label{fig:tracking_1pt2gev}
@@ -61,7 +61,20 @@ Furthermore, these fake tracks, not being due to an individual low-momentum trac
 
 The recoil tracker must have a large acceptance for recoiling electrons characteristic of signal events with good resolution for transverse momentum and impact position at the target which are critical for unambiguously associating those recoils with incoming electrons identified by the tagging tracker.  While good reconstruction efficiency for signal recoils is important, it is even more important to have good efficiency for charged tracks over the largest possible acceptance to help the calorimeter veto background events with additional charged particles in the final state.  In addition, the tracker should have sufficient momentum resolution that it can assist the ECal in identifying events where an incoming beam electron passes through the target and tracker without significant energy loss. Finally, the recoil tracker can help identify events where a bremsstrahlung photon generated after the end of the tagger tracker undergoes a photonuclear reaction in the target or tracker material.
 
-Estimation of the impact parameter and recoil momentum transverse to the target require precise determination of the angle at the target.  For the transverse momentum, a good curvature measurement is also required to set the overall momentum scale.  At least two 3-d measurements directly downstream of the target are needed to determine the recoil angle while at least one additional bend-plane measurement is needed for curvature.  For low-momentum tracks, this third measurement can be in the first four closely-spaced layers, but for high momentum tracks that are nearly straight, hits in both of the downstream axial layers are required for good momentum resolution.  Because high-momentum signal recoils will nearly always pass through all six layers, the acceptance near the top of the energy range for signal recoils is near unity, only reduced by the single-hit efficiency in the last two layers. However, at low momentum a large number of tracks can escape detection. Therefore, in order to estimate the signal acceptance for well-measured recoils, we require that recoiling electrons leave hits in at least three of the 3-d layers, for pattern recognition and angle estimation, and at least four hits total for reasonably purity.  The tracker acceptance for signal recoils as a function of mediator mass is shown in Figure XXX along with the track finding efficiency, important for eliminating events with extra charged particles in the final state.
+Estimation of the impact parameter and recoil momentum transverse to the target require precise determination of the angle at the target.  For the transverse momentum, a good curvature measurement is also required to set the overall momentum scale.  At least two 3-d measurements directly downstream of the target are needed to determine the recoil angle while at least one additional bend-plane measurement is needed for curvature.  For low-momentum tracks, this third measurement can be in the first four closely-spaced layers, but for high momentum tracks that are nearly straight, hits in both of the downstream axial layers are required for good momentum resolution.  Because high-momentum signal recoils will nearly always pass through all six layers, the acceptance near the top of the energy range for signal recoils is near unity, only reduced by the single-hit efficiency in the last two layers. However, at low momentum a large number of tracks can escape detection. Therefore, in order to estimate the signal acceptance for well-measured recoils, we require that recoiling electrons leave hits in at least three of the 3-d layers, for pattern recognition and angle estimation, and at least four hits total for reasonably purity.  The tracker acceptance for signal recoils as a function of mediator mass is shown in Figure~\ref{fig:signal_plots} along with the track finding efficiency, important for eliminating events with extra charged particles in the final state.
+
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\textwidth]{images/tracker/signal_acceptance_eff.png}
+    \caption{The recoil tracker acceptance to signal recoils as a function of 
+             $A'$ mass (left) alogn with the track finding efficiency.}
+    \label{fig:signal_plots}
+\end{figure}
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
 
 The ability to distinguish signal from background using the recoil transverse momentum is obviously limited by the multiple scattering in the target, where multiple scattering in a 10\% $X_0$ target results in a 4 MeV smearing in transverse momentum.  Using an analytic model of the target and recoil tracker, the material budget and single-hit resolutions of the recoil tracker have been designed so that the experimental resolution is limited by multiple scattering in the target over the entire momentum range for signal recoils. This has been verified in full simulation as shown in Figure XXX.  Furthermore, the impact parameter resolution, also shown in Figure XXX, results in a very low probability that a mis-reconstructed recoil track can be incorrectly associated with a tagged incoming electron.  
 
